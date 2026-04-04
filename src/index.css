@@ -1,0 +1,349 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Elpis — global base + component layer (all app styles live here; JSX uses className only) */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    @apply box-border;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply m-0 min-h-screen font-sans text-base leading-normal text-slate-800;
+    background: linear-gradient(160deg, #f0f9ff 0%, #f8fafc 45%, #ecfeff 100%);
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply m-0 mb-2 font-semibold text-slate-900;
+  }
+
+  a {
+    @apply text-teal-600 no-underline hover:underline;
+  }
+
+  button {
+    @apply cursor-pointer;
+    font-family: inherit;
+  }
+
+  input,
+  select,
+  textarea {
+    @apply text-base;
+    font-family: inherit;
+  }
+}
+
+@layer components {
+  .elpis-page {
+    @apply mx-auto max-w-[1100px] px-4 pb-10 pt-5 max-sm:px-3 max-sm:pb-8 max-sm:pt-4;
+  }
+
+  .elpis-page-narrow-sm {
+    @apply max-w-[420px];
+  }
+
+  .elpis-page-narrow-md {
+    @apply max-w-[480px];
+  }
+
+  .elpis-page-narrow-lg {
+    @apply max-w-[560px];
+  }
+
+  .elpis-page-narrow-xl {
+    @apply max-w-[720px];
+  }
+
+  .elpis-card {
+    @apply rounded-xl border border-slate-200 bg-white shadow-sm;
+  }
+
+  .elpis-card-pad {
+    @apply p-5;
+  }
+
+  .elpis-card-pad-lg {
+    @apply p-8;
+  }
+
+  .elpis-auth-card {
+    @apply mt-8 rounded-xl border border-slate-200 bg-white p-8 shadow-sm;
+  }
+
+  .elpis-auth-card-register {
+    @apply mt-6 rounded-xl border border-slate-200 bg-white p-8 shadow-sm;
+  }
+
+  .elpis-btn {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-lg border-0 px-[1.1rem] py-[0.55rem] font-medium transition-all duration-150;
+  }
+
+  .elpis-btn:hover:not(:disabled) {
+    @apply -translate-y-px shadow-md;
+  }
+
+  .elpis-btn:active:not(:disabled) {
+    @apply translate-y-0;
+  }
+
+  .elpis-btn:disabled {
+    @apply cursor-not-allowed opacity-[0.55] shadow-none;
+  }
+
+  .elpis-btn-primary {
+    @apply bg-gradient-to-br from-teal-600 to-cyan-600 text-white hover:shadow-teal-500/25;
+  }
+
+  .elpis-btn-secondary {
+    @apply border border-slate-200 bg-slate-100 text-slate-700 hover:shadow-sm;
+  }
+
+  .elpis-btn-secondary:hover:not(:disabled) {
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+  }
+
+  .elpis-btn-ghost {
+    @apply bg-transparent text-teal-600;
+  }
+
+  .elpis-btn-block {
+    @apply w-full;
+  }
+
+  .elpis-btn-table {
+    @apply px-3 py-1.5 text-sm;
+  }
+
+  .elpis-input {
+    @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 transition-[border-color,box-shadow] duration-150 focus:border-teal-600 focus:outline-none focus:ring-[3px] focus:ring-teal-600/20;
+  }
+
+  .elpis-label {
+    @apply mb-1.5 block text-sm font-medium text-slate-600;
+  }
+
+  .elpis-error {
+    @apply mt-1 text-[0.8125rem] text-red-600;
+  }
+
+  .elpis-spinner {
+    @apply h-8 w-8 animate-spin rounded-full border-[3px] border-slate-200 border-t-teal-600;
+  }
+
+  .elpis-spinner-sm {
+    @apply h-6 w-6 border-2;
+  }
+
+  .elpis-spinner-xs {
+    @apply h-5 w-5 border-2;
+  }
+
+  .elpis-muted {
+    @apply text-slate-500;
+  }
+
+  .elpis-heading-tight {
+    @apply mb-1;
+  }
+
+  .elpis-stack {
+    @apply mb-4;
+  }
+
+  .elpis-stack-tight {
+    @apply mb-3;
+  }
+
+  .elpis-stack-loose {
+    @apply mb-5;
+  }
+
+  .elpis-form-footer {
+    @apply mt-5 text-center text-slate-500;
+  }
+
+  /* Navbar */
+  .elpis-nav {
+    @apply sticky top-0 z-50 border-b border-slate-200 bg-white shadow-sm;
+  }
+
+  .elpis-nav-inner {
+    @apply mx-auto flex max-w-[1100px] flex-wrap items-center justify-between gap-3 px-4 py-3;
+  }
+
+  .elpis-nav-brand {
+    @apply text-xl font-bold text-teal-600 no-underline hover:no-underline;
+  }
+
+  .elpis-nav-links {
+    @apply flex flex-wrap items-center gap-x-2 gap-y-1;
+  }
+
+  .elpis-nav-link {
+    @apply rounded-md px-2 py-1.5 text-sm font-medium text-slate-900 no-underline transition-colors duration-150 hover:bg-teal-50 hover:text-teal-600 hover:no-underline;
+  }
+
+  .elpis-nav-badge {
+    @apply ml-1 rounded-lg bg-cyan-50 px-2.5 py-1 text-sm font-medium text-cyan-800;
+  }
+
+  .elpis-nav-logout {
+    @apply ml-1;
+  }
+
+  /* Dashboard */
+  .elpis-metric-grid {
+    @apply mb-7 grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] gap-4;
+  }
+
+  .elpis-metric-card {
+    @apply rounded-xl border border-slate-200 bg-white p-[1.15rem] shadow-sm;
+  }
+
+  .elpis-section-head {
+    @apply mb-3 flex flex-wrap items-center justify-between gap-3;
+  }
+
+  .elpis-section-title {
+    @apply text-lg font-semibold;
+  }
+
+  .elpis-link-btn {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-lg border-0 bg-gradient-to-br from-teal-600 to-cyan-600 px-[1.1rem] py-[0.55rem] font-medium text-white no-underline transition-all duration-150 hover:-translate-y-px hover:shadow-md hover:shadow-teal-500/25 hover:no-underline;
+  }
+
+  .elpis-patient-row {
+    @apply flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 px-5 py-3.5 last:border-b-0;
+  }
+
+  /* Table */
+  .elpis-table-wrap {
+    @apply overflow-x-auto;
+  }
+
+  .elpis-table {
+    @apply min-w-[520px] w-full border-collapse;
+  }
+
+  .elpis-table thead tr {
+    @apply bg-slate-50 text-left;
+  }
+
+  .elpis-table th {
+    @apply border-b border-slate-200 px-4 py-3;
+  }
+
+  .elpis-table td {
+    @apply border-b border-slate-100 px-4 py-3;
+  }
+
+  /* Patient history */
+  .elpis-dl-grid {
+    @apply m-0 grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-3;
+  }
+
+  .elpis-dl-term {
+    @apply m-0 text-xs text-slate-500;
+  }
+
+  .elpis-dl-desc {
+    @apply mt-0.5 font-semibold;
+  }
+
+  .elpis-visit-list {
+    @apply m-0 flex list-none flex-col gap-4 p-0;
+  }
+
+  .elpis-visit-card {
+    @apply rounded-xl border border-slate-200 bg-white p-[1.15rem] shadow-sm;
+  }
+
+  /* Detection result tiles */
+  .elpis-result-grid {
+    @apply mb-4 grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] gap-3;
+  }
+
+  .elpis-result-tile-teal {
+    @apply rounded-lg border border-teal-200 bg-teal-50 p-3;
+  }
+
+  .elpis-result-tile-cyan {
+    @apply rounded-lg border border-cyan-200 bg-cyan-50 p-3;
+  }
+
+  .elpis-result-tile-muted {
+    @apply rounded-lg border border-slate-200 bg-slate-50 p-3;
+  }
+
+  .elpis-result-label {
+    @apply m-0 text-xs font-normal uppercase text-teal-800;
+  }
+
+  .elpis-result-label-cyan {
+    @apply text-cyan-800;
+  }
+
+  .elpis-result-label-muted {
+    @apply text-slate-500;
+  }
+
+  .elpis-result-value {
+    @apply mt-1 text-xl font-bold text-slate-900;
+  }
+
+  /* Image uploader */
+  .elpis-preview-img {
+    @apply max-h-[280px] w-full max-w-full rounded-lg border border-slate-200 bg-slate-50 object-contain;
+  }
+
+  .elpis-file-input {
+    @apply mb-3 block;
+  }
+
+  /* Misc layout */
+  .elpis-center-screen {
+    @apply flex min-h-screen flex-col items-center justify-center gap-4;
+  }
+
+  .elpis-loading-row {
+    @apply flex items-center gap-3 text-slate-500;
+  }
+
+  .elpis-prose-tight {
+    @apply mb-6 max-w-xl text-slate-500;
+  }
+
+  .elpis-detection-actions {
+    @apply mt-5 flex flex-wrap items-center gap-3;
+  }
+
+  .elpis-detection-result {
+    @apply mt-7 rounded-xl border border-slate-200 bg-white p-[1.35rem] shadow-sm;
+  }
+
+  .elpis-recommendations {
+    @apply m-0 list-disc pl-5 text-slate-700;
+  }
+
+  .elpis-recommendations li {
+    @apply mb-1.5;
+  }
+
+  .elpis-result-footer {
+    @apply mt-5 flex flex-wrap items-center gap-3 border-t border-slate-200 pt-4;
+  }
+}

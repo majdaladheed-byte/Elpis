@@ -1,0 +1,33 @@
+---
+description: Keep the Elpis project simple for graduation
+globs: 
+alwaysApply: true
+---
+
+# Project: Elpis Medical Website (Graduation Project)
+
+## CRITICAL RULES - MUST FOLLOW:
+
+1. **Keep it SIMPLE** - This is a graduation project, not production software
+2. **NO over-engineering** - Don't add Redux, complex state management, or unnecessary abstractions
+3. **Write functional components with useState only** - No Context API unless absolutely necessary
+4. **All API calls in ONE file (api.js)** - Don't split into services folder
+5. **Use inline styles or simple index.css** - No Tailwind complex configs
+6. **7 pages only**: Login, Register, Dashboard, DoctorProfile, PatientsTable, PatientHistory, BreastCancerDetection
+7. **2 components only**: Navbar and ImageUploader
+8. **Don't add extra features** - Only what the prompt asks for
+9. **Explain code briefly** - Add comments so student can present to professors
+
+## WHAT TO AVOID:
+- ❌ No Redux or Zustand
+- ❌ No separate services folder
+- ❌ No custom hooks unless truly needed
+- ❌ No complex animations
+- ❌ No TypeScript (plain JSX is fine)
+- ❌ No testing files for this project
+
+## STACK:
+- React + Vite
+- React Router DOM
+- Axios
+- Simple CSS (no frameworks)
